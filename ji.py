@@ -18,12 +18,9 @@ class Yolov8:
         self.color_palette = np.random.uniform(0, 255, size=(len(self.classes), 3))
 
     def preprocess(self, input_image):
-        self.input_image = input_image
+        self.img_height, self.img_width = input_image.shape[:2]
 
-        self.img = cv2.imread(self.input_image)
-        self.img_height, self.img_width = self.img.shape[:2]
-
-        img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
+        img = cv2.cvtColor(input_image, cv2.COLOR_BGR2RGB)
 
         img = cv2.resize(img, (self.input_width, self.input_height))
 
@@ -157,7 +154,6 @@ def process_image(model, input_image, args=None):
     }
 
     for info in object_infos:
-        print(info)
         if info["name"] == "door_open":
             fake_result["algorithm_data"]["is_alert"] = True
             fake_result["algorithm_data"]["target_count"] += 1
@@ -173,8 +169,9 @@ def process_image(model, input_image, args=None):
 
 def main():
     image_path = 'assert/ZDSzudangelevator20230320_V3_train_elevator_1_003221.jpg'
+    input_image = cv2.imread(image_path)
     model = init()
-    json_content = process_image(model, image_path)
+    json_content = process_image(model, input_image)
     json_file = open("detectInfo.json", 'w')
     json_file.write(json_content)
     json_file.close()
