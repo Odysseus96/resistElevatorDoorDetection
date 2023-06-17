@@ -1,0 +1,19 @@
+{
+    "algorithm_data": {
+        "is_alert": false,
+        "target_count": 0,
+        "target_info": []
+    },
+    "model_data": {
+        "objects": [
+            {
+                "x": 94,
+                "y": 126,
+                "width": 911,
+                "height": 1366,
+                "confidence": 0.9782736897468567,
+                "name": "door_open"
+            }
+        ]
+    }
+}
