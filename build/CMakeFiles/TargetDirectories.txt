@@ -1,2 +1,0 @@
-/Users/wangyaozhong/CodeForFuture/code/elevatorClose/build/CMakeFiles/edit_cache.dir
-/Users/wangyaozhong/CodeForFuture/code/elevatorClose/build/CMakeFiles/rebuild_cache.dir
